@@ -165,10 +165,16 @@ footer section h4 {
   color: #495e57;
 }
 /*booking-section*/
-.book-form {
-  display: inline-block;
-  padding: 5px 13%;
-  gap: 20px;
+form {
+  margin-top: 50px;
+  padding: 10px 13%;
+}
+.bookForm {
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  padding: 60px;
+  border: none;
 }
 .btnForm input {
   padding: 12px 14px;
@@ -180,7 +186,12 @@ footer section h4 {
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
+  display: block;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 input,
 label {
   display: inline-block;
