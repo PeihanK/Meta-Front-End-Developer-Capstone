@@ -17,22 +17,22 @@ const Footer = () => {
           <ul>
             <h4>Doormat navigation</h4>
             <li>
-              <a href="home">HOME</a>
+              <a href="home">Home</a>
             </li>
             <li>
-              <a href="about">ABOUT</a>
+              <a href="about">About</a>
             </li>
             <li>
-              <a href="menu">MENU</a>
+              <a href="menu">Menu</a>
             </li>
             <li>
-              <a href="reservations">RESERVATIONS</a>
+              <a href="reservations">Reservations</a>
             </li>
             <li>
-              <a href="jrder online">ORDER ONLINE</a>
+              <a href="jrder online">Order online</a>
             </li>
             <li>
-              <a href="login">LOGIN</a>
+              <a href="login">Login</a>
             </li>
           </ul>
         </div>

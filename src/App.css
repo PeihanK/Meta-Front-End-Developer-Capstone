@@ -198,12 +198,17 @@ label {
   border-radius: 2px;
 }
 .confirmed {
+  margin-top: 30px;
   padding: 5px 13%;
 }
-.conf-text {
+.confirmed h1 {
   color: #495e57;
+  text-align: center;
 }
+
 .booking-img img {
+  display: block;
   width: 50%;
   border-radius: 12px;
+  margin: 0 auto;
 }

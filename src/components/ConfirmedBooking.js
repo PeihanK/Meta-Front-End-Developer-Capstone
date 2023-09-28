@@ -3,7 +3,7 @@ import bookingImg from "../images/restaurant.jpg";
 const ConfirmedBooking = () => {
   return (
     <div className="confirmed">
-      <div className="conf-text">
+      <div>
         <h1>Booking confirmed</h1>
       </div>
       <div className="booking-img">
