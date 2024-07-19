@@ -1,8 +1,8 @@
 import React, { useReducer } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import ConfirmedBooking from "./ConfirmedBooking.js";
-import Booking from "./BookingForm.js";
-import Header from "./Header.js";
+import ConfirmedBooking from "./ConfirmedBooking";
+import Booking from "./BookingForm";
+import Header from "./Header";
 
 const Main = () => {
   const seededRandom = function (seed) {
@@ -28,38 +28,46 @@ const Main = () => {
     }
     return result;
   };
+
   const submitAPI = function (formData) {
     return true;
   };
-  const initialState = { availableTimes: fetchAPI(new Date()) };
-  const [state, dispatch] = useReducer(updateTimes, initialState);
-  function updateTimes(state, date) {
+
+  const updateTimes = (availableTimes, action) => {
+    if (action) {
+      return { availableTimes: fetchAPI(new Date(action)) };
+    }
     return { availableTimes: fetchAPI(new Date()) };
-  }
+  };
+
+  const initializeTimes = { availableTimes: fetchAPI(new Date()) };
+  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes);
   const navigate = useNavigate();
 
-  function SubmitForm(formData) {
+  const submitForm = (formData) => {
     if (submitAPI(formData)) {
-      navigate("/confirmed");
+      navigate("/confirmed-booking");
     }
-  }
+  };
+
   return (
-    <main className="main">
+    <>
       <Routes>
-        <Route path="/" element={<Header />} />
         <Route
           path="/booking"
           element={
             <Booking
-              availableTimes={state}
+              availableTimes={availableTimes}
               dispatch={dispatch}
-              SubmitForm={SubmitForm}
+              submitForm={submitForm}
             />
           }
         />
-        <Route path="/confirmed" element={<ConfirmedBooking />} />
+        <Route path="/confirmed-booking" element={<ConfirmedBooking />} />
       </Routes>
-    </main>
+      <Header />
+    </>
   );
 };
+
 export default Main;

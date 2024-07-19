@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const BookingForm = (props) => {
   const [occasion, setOccasion] = useState("");
@@ -9,13 +8,14 @@ const BookingForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.SubmitForm(e);
+    props.submitForm(e);
   };
 
   const handleChange = (e) => {
     setDate(e);
     props.dispatch(e);
   };
+
   return (
     <header>
       <section>
@@ -29,7 +29,7 @@ const BookingForm = (props) => {
                 onChange={(e) => handleChange(e.target.value)}
                 type="date"
                 required
-              ></input>
+              />
             </div>
             <div>
               <label htmlFor="book-time">Choose time</label>
@@ -40,23 +40,23 @@ const BookingForm = (props) => {
                 required
               >
                 <option value="">Select a Time</option>
-                {props.availableTimes.availableTimes.map((availableTimes) => {
-                  return <option key={availableTimes}>{availableTimes}</option>;
-                })}
+                {props.availableTimes.availableTimes.map((availableTimes) => (
+                  <option key={availableTimes}>{availableTimes}</option>
+                ))}
               </select>
             </div>
             <div>
               <label htmlFor="book-guests">Number of guests</label>
               <input
-                type={"number"}
-                placeholder={"1"}
+                type="number"
+                placeholder="1"
                 min="1"
-                max={"10"}
+                max="10"
                 id="guests"
                 value={guests}
                 onChange={(e) => setGuests(e.target.value)}
                 required
-              ></input>
+              />
             </div>
             <div>
               <label htmlFor="book-occasion">Occasion</label>
@@ -75,9 +75,9 @@ const BookingForm = (props) => {
               <div className="btnForm">
                 <input
                   aria-label="On Click"
-                  type={"submit"}
-                  value={"Make Your reservation"}
-                ></input>
+                  type="submit"
+                  value="Make Your reservation"
+                />
               </div>
             </div>
           </fieldset>

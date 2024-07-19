@@ -10,4 +10,5 @@ const Booking = (props) => {
     />
   );
 };
+
 export default Booking;
