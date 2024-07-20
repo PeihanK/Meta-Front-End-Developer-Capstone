@@ -1,73 +1,44 @@
 import React, { useReducer } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
-import ConfirmedBooking from "./ConfirmedBooking";
-import Booking from "./BookingForm";
-import Header from "./Header";
+import Booking from "./Booking";
 
-const Main = () => {
-  const seededRandom = function (seed) {
-    var m = 2 ** 35 - 31;
-    var a = 185852;
-    var s = seed % m;
-    return function () {
-      return (s = (s * a) % m) / m;
-    };
+const initialState = {
+  availableTimes: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "UPDATE_TIMES":
+      return {
+        ...state,
+        availableTimes: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+const ParentComponent = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const submitForm = (e) => {
+    e.preventDefault();
+    console.log("Form submitted");
   };
 
-  const fetchAPI = function (date) {
-    let result = [];
-    let random = seededRandom(date.getDate());
-
-    for (let i = 17; i <= 23; i++) {
-      if (random() < 0.5) {
-        result.push(i + ":00");
-      }
-      if (random() < 0.5) {
-        result.push(i + ":30");
-      }
-    }
-    return result;
-  };
-
-  const submitAPI = function (formData) {
-    return true;
-  };
-
-  const updateTimes = (availableTimes, action) => {
-    if (action) {
-      return { availableTimes: fetchAPI(new Date(action)) };
-    }
-    return { availableTimes: fetchAPI(new Date()) };
-  };
-
-  const initializeTimes = { availableTimes: fetchAPI(new Date()) };
-  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes);
-  const navigate = useNavigate();
-
-  const submitForm = (formData) => {
-    if (submitAPI(formData)) {
-      navigate("/confirmed-booking");
-    }
+  const updateTimes = (date) => {
+    const newTimes = ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"]; // Example updated times
+    dispatch({ type: "UPDATE_TIMES", payload: newTimes });
   };
 
   return (
-    <>
-      <Routes>
-        <Route
-          path="/booking"
-          element={
-            <Booking
-              availableTimes={availableTimes}
-              dispatch={dispatch}
-              submitForm={submitForm}
-            />
-          }
-        />
-        <Route path="/confirmed-booking" element={<ConfirmedBooking />} />
-      </Routes>
-      <Header />
-    </>
+    <div>
+      <Booking
+        availableTimes={state.availableTimes}
+        dispatch={updateTimes}
+        submitForm={submitForm}
+      />
+    </div>
   );
 };
 
-export default Main;
+export default ParentComponent;

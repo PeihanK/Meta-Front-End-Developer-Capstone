@@ -4,7 +4,7 @@ const BookingForm = (props) => {
   const [occasion, setOccasion] = useState("");
   const [guests, setGuests] = useState("");
   const [date, setDate] = useState("");
-  const [times, setTimes] = useState("");
+  const [time, setTime] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,8 +12,8 @@ const BookingForm = (props) => {
   };
 
   const handleChange = (e) => {
-    setDate(e);
-    props.dispatch(e);
+    setDate(e.target.value);
+    props.dispatch(e.target.value);
   };
 
   return (
@@ -26,7 +26,7 @@ const BookingForm = (props) => {
               <input
                 id="book-date"
                 value={date}
-                onChange={(e) => handleChange(e.target.value)}
+                onChange={handleChange}
                 type="date"
                 required
               />
@@ -35,13 +35,15 @@ const BookingForm = (props) => {
               <label htmlFor="book-time">Choose time</label>
               <select
                 id="book-time"
-                value={times}
-                onChange={(e) => setTimes(e.target.value)}
+                value={time}
+                onChange={(e) => setTime(e.target.value)}
                 required
               >
                 <option value="">Select a Time</option>
-                {props.availableTimes.availableTimes.map((availableTimes) => (
-                  <option key={availableTimes}>{availableTimes}</option>
+                {props.availableTimes && props.availableTimes.map((availableTime, index) => (
+                  <option key={index} value={availableTime}>
+                    {availableTime}
+                  </option>
                 ))}
               </select>
             </div>
@@ -62,23 +64,22 @@ const BookingForm = (props) => {
               <label htmlFor="book-occasion">Occasion</label>
               <select
                 id="book-occasion"
-                key={occasion}
                 value={occasion}
                 onChange={(e) => setOccasion(e.target.value)}
                 required
               >
-                <option>Select occasion</option>
-                <option>Birthday</option>
-                <option>Anniversary</option>
-                <option>Octoberfest</option>
+                <option value="">Select occasion</option>
+                <option value="Birthday">Birthday</option>
+                <option value="Anniversary">Anniversary</option>
+                <option value="Other">Other</option>
               </select>
-              <div className="btnForm">
-                <input
-                  aria-label="On Click"
-                  type="submit"
-                  value="Make Your reservation"
-                />
-              </div>
+            </div>
+            <div className="btnForm">
+              <input
+                aria-label="On Click"
+                type="submit"
+                value="Make Your reservation"
+              />
             </div>
           </fieldset>
         </form>
