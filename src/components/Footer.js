@@ -1,5 +1,6 @@
 import React from "react";
 import footer from "../images/footer.png";
+
 const Footer = () => {
   return (
     <footer className="footer">
@@ -11,28 +12,28 @@ const Footer = () => {
             alt="Footer Little Lemon"
             width="90"
             height="175"
-          ></img>
+          />
         </div>
         <div className="footer-links1">
           <ul>
             <h4>Doormat navigation</h4>
             <li>
-              <a href="home">Home</a>
+              <a href="/">Home</a>
             </li>
             <li>
-              <a href="about">About</a>
+              <a href="/about">About</a>
             </li>
             <li>
-              <a href="menu">Menu</a>
+              <a href="/menu">Menu</a>
             </li>
             <li>
-              <a href="reservations">Reservations</a>
+              <a href="/reservations">Reservations</a>
             </li>
             <li>
-              <a href="jrder online">Order online</a>
+              <a href="/order-online">Order online</a>
             </li>
             <li>
-              <a href="login">Login</a>
+              <a href="/login">Login</a>
             </li>
           </ul>
         </div>
@@ -40,10 +41,10 @@ const Footer = () => {
           <ul>
             <h4>Contact</h4>
             <li>
-              <a href="1">Phone number</a>
+              <a href="tel:1">Phone number</a>
             </li>
             <li>
-              <a href="2">Adress</a>
+              <a href="mailto:address">Address</a>
             </li>
             <li>
               <a href="mailto:3@gmail.com">E-Mail</a>

@@ -1,32 +1,33 @@
 import React from "react";
-import logo from "../images/logo.png";
+import { Link } from "react-router-dom";
+import Logo from "../images/logo.png";
+
 const Nav = () => {
   return (
-    <nav className="navbar">
-      <div className="logo">
-        <img src={logo} alt=""></img>
-      </div>
-      <ul className="nav-links">
+    <nav>
+      <img src={Logo} alt="Little Lemon Logo" className="logo" />
+      <ul>
         <li>
-          <a href="/">HOME</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="/">ABOUT</a>
+          <Link to="/about">About</Link>
         </li>
         <li>
-          <a href="/">MENU</a>
+          <Link to="/menu">Menu</Link>
         </li>
         <li>
-          <a href="/">RESERVATIONS</a>
+          <Link to="/booking">Reservations</Link>
         </li>
         <li>
-          <a href="/">ORDER ONLINE</a>
+          <Link to="/order-online">Order Online</Link>
         </li>
         <li>
-          <a href="/">LOGIN</a>
+          <Link to="/login">Login</Link>
         </li>
       </ul>
     </nav>
   );
 };
+
 export default Nav;

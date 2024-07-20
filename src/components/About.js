@@ -1,12 +1,13 @@
+import React from "react";
 import Aboutimg from "../images/Mario and Adrian A.jpg";
 import Aboutimg2 from "../images/Mario and Adrian b.jpg";
+
 const About = () => {
   return (
     <div className="about-section">
       <div className="about-txt">
         <h2>Little lemon</h2>
         <h3>Chicago</h3>
-
         <p>
           Little Lemon is owned by two Italian brothers, Mario and Adrian, who
           moved to the United States to pursue their shared dream of owning a
@@ -19,10 +20,10 @@ const About = () => {
       </div>
       <div className="about-img">
         <div className="img1">
-          <img src={Aboutimg} alt="Mario"></img>
+          <img src={Aboutimg} alt="Mario" />
         </div>
         <div className="img2">
-          <img src={Aboutimg2} alt="Mario2"></img>
+          <img src={Aboutimg2} alt="Mario2" />
         </div>
       </div>
     </div>
