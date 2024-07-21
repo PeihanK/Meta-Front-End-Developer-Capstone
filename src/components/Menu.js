@@ -1,14 +1,19 @@
 import React from "react";
 import recipes from "./recipes";
+import "../App.css";
+import { Link } from "react-router-dom";
+
 const Menu = () => {
   return (
     <div
-      className="
-    menu-container"
+      className="menu-container" id="menu"
     >
+      
       <div className="menu-header">
         <h2>This week specials</h2>
-        <button>Online Menu</button>
+        <Link to="/order-online">
+          <button aria-label="On Click">Online Menu</button>
+        </Link>
       </div>
       <div className="cards">
         {recipes.map((recipe) => (
@@ -20,11 +25,14 @@ const Menu = () => {
                 <p>${recipe.price}</p>
               </div>
               <p>{recipe.description}</p>
-              <button className="order-btn">Order online</button>
+              <Link to="/underconstruction">
+                <button className="order-btn">Order online</button>
+              </Link>
             </div>
           </div>
         ))}
       </div>
+      
     </div>
   );
 };
