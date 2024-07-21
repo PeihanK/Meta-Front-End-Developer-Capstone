@@ -5,10 +5,13 @@ const BookingForm = (props) => {
   const [guests, setGuests] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] =useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.submitForm(e);
+    const formData = { date, time, guests, occasion, phone, email };
+    props.submitForm(formData);
   };
 
   const handleChange = (e) => {
@@ -40,11 +43,12 @@ const BookingForm = (props) => {
                 required
               >
                 <option value="">Select a Time</option>
-                {props.availableTimes && props.availableTimes.map((availableTime, index) => (
-                  <option key={index} value={availableTime}>
-                    {availableTime}
-                  </option>
-                ))}
+                {props.availableTimes &&
+                  props.availableTimes.map((availableTime, index) => (
+                    <option key={index} value={availableTime}>
+                      {availableTime}
+                    </option>
+                  ))}
               </select>
             </div>
             <div>
@@ -73,6 +77,26 @@ const BookingForm = (props) => {
                 <option value="Anniversary">Anniversary</option>
                 <option value="Other">Other</option>
               </select>
+            </div>
+            <div>
+              <label htmlFor="phone">Phone</label>
+              <input
+              type="tel"
+              id="phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              required
+              />
+            </div>
+            <div>
+              <label htmlFor="email">Email</label>
+              <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              />
             </div>
             <div className="btnForm">
               <input

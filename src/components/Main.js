@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
 import Booking from "./Booking";
+import "../App.css";
 
 const initialState = {
   availableTimes: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"],
@@ -26,7 +27,7 @@ const ParentComponent = () => {
   };
 
   const updateTimes = (date) => {
-    const newTimes = ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"]; // Example updated times
+    const newTimes = ["12:00", "13:00", "14:00"]; // Example updated times
     dispatch({ type: "UPDATE_TIMES", payload: newTimes });
   };
 
