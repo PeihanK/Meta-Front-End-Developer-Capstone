@@ -24,6 +24,30 @@ nav ul li {
   padding: 1em;
 }
 
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  background: #495e57;
+  border-radius: 2px;
+  height: 3px;
+  margin: 2px 0;
+  width: 25px;
+}
+.nav-links.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: #edefee;
+  width: 100%;
+  padding: 1rem;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -34,6 +58,7 @@ nav ul li {
 nav ul li a {
   color: #495e57;
 }
+
 
 /*header-section*/
 .header {
@@ -364,4 +389,194 @@ label {
   height: 350px;
   border-radius: 12px;
   margin-bottom: 30px;
+}
+@media (max-width: 768px) {
+
+  nav {
+    display: flex;
+    padding: 5px 7%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  nav ul li {
+    display: block;
+    padding: 0.5em 0;
+  }
+  .header {
+    background-color: #edefee;
+    display: flex;
+    /* flex-direction: column; */
+    /* height: 100vh; */
+    
+  }
+  .header section {
+    background-color: #495e57;
+    color: #edefee;
+    padding: 5px 7%;
+    position: static;
+    height: auto;
+    
+    
+       
+  }
+  h2 {
+    color: #f4ce14;
+    font-size: 30px;
+    font-family: "Markazi", serif;
+  }
+  h3 {
+    font-size: 25px;
+    font-family: "Markazi", serif;
+  }
+  .banner {
+    
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+  }
+  
+  button {
+    padding: 8px 10px;
+    color: #495e57;
+    background-color: #f2ce14;
+    border: none;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .banner p {
+    font-size: 20px;
+    max-width: auto;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  .banner-image {
+      
+    position: absolute;
+    right: 5%;
+    top: 10%;
+    /* right: 7%;
+    top: 10%; */
+  }
+  .banner-image img {
+    display:  none;
+    /* width: auto;
+    height: 16vh;
+    border-radius: 12px; */
+  }
+  /*menu-section*/
+
+.menu-container {
+  background-color: #edefee;
+  justify-content: center;
+  padding: 5px 7%;
+ 
+  
+  /* margin: 50px auto; */
+  /* height: 100vh; */
+}
+
+/*order-section*/
+
+.order-container {
+  background-color: #edefee;
+  justify-content: center;
+  padding: 5px 7% 30px;
+  
+  /* margin: 50px auto; */
+  /* height: 100vh; */
+}
+/*about-section*/
+.about-section {
+  background-color: #edefee;
+  display: flex; 
+  flex-direction: column; 
+  padding: 5px 7%;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+.about-txt {
+  color: #495e57;
+  
+}
+.about-section p {
+  width: 100%;
+
+}
+.about-img{
+ display: flex;
+ justify-content: center;
+}
+.about-img img {
+  
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  
+  
+  }
+.img2 {
+  display: none;
+  /* position: relative;
+  right: 50%;
+  top: -20%; */
+}
+/*footer-section*/
+footer section {
+  padding: 5px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: top, center;
+  flex-wrap: wrap;
+}
+.footer-links2 ul{
+ margin: 0;
+ padding: 0;
+}
+.footer-img{
+  margin-top: 25px;;
+}
+footer section h4 {
+  color: #495e57;
+}
+/* underconstruction-section */
+
+.underconstruction {
+  background-color: #edefee;
+  display: flex;
+  padding: 5px 7% 40px;
+  /* height: 100vh; */
+  justify-content: center;
+  
+  }
+
+.underconstruction h2 {
+  color: #495e57;
+  font-size: 30px;
+  font-family: "Markazi", serif;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 30px 0;
+}
+
+.banner-uc-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
 }

@@ -22,7 +22,7 @@ const recipes = [
     image: "./img/lemon dessert.jpg",
     description:
       "This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
-  },
+  }
 ];
 
 export default recipes;
