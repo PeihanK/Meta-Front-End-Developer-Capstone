@@ -252,7 +252,7 @@ button {
   justify-content: flex-end; 
 }
 .about-img img {
-  max-width: 40vh;
+  max-width: 38vh;
   height: auto;
   border-radius: 12px;
 }
@@ -637,7 +637,7 @@ button {
 
 .about-txt {
   color: #495e57;
-  max-width: 60vh;
+  max-width: 70vh;
   flex: 1;
 }
 
@@ -656,7 +656,7 @@ button {
 }
 
 .about-img img {
-  max-width: 37vh;
+  max-width: 60vh;
   height: auto;
   border-radius: 12px;
 }
