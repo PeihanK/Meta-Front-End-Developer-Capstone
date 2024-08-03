@@ -48,7 +48,7 @@ const OrderOnline = () => {
           </div>
         ))}
       </div>
-        <h2>Beverages</h2>        
+        <h2>Cocktails</h2>        
         <div className="cards">
         {recipes_beverages.map((recipe) => (
           <div key={recipe.id} className="menu-items">
