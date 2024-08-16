@@ -6,12 +6,33 @@ const BookingForm = (props) => {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [phone, setPhone] = useState("");
-  const [email, setEmail] =useState("");
+  const [email, setEmail] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const formData = { date, time, guests, occasion, phone, email };
-    props.submitForm(formData);
+
+    // Отправляем данные на ваш бэкенд
+    fetch('https://your-backend-url.onrender.com/api/reserve', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.status === 'success') {
+        alert('Reservation successful!');
+      } else {
+        alert('Reservation failed. Please try again.');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('An error occurred. Please try again later.');
+    });
   };
 
   const handleChange = (e) => {
@@ -81,21 +102,21 @@ const BookingForm = (props) => {
             <div>
               <label htmlFor="phone">Phone</label>
               <input
-              type="tel"
-              id="phone"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              required
+                type="tel"
+                id="phone"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                required
               />
             </div>
             <div>
               <label htmlFor="email">Email</label>
               <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
             <div className="btnForm">
