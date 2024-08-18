@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const BookingForm = (props) => {
   const [occasion, setOccasion] = useState("");
@@ -7,6 +8,7 @@ const BookingForm = (props) => {
   const [time, setTime] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,6 +27,7 @@ const BookingForm = (props) => {
     .then(data => {
       if (data.status === 'success') {
         alert('Reservation successful!');
+        navigate("/confirmation");
       } else {
         alert('Reservation failed. Please try again.');
       }

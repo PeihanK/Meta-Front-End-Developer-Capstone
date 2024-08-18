@@ -8,6 +8,7 @@ import About from "./components/About";
 import ParentComponent from "./components/Main";
 import OrderOnline from "./components/OrderOnline";
 import Underconstruction from "./components/Underconstruction";
+import ConfirmedBooking from "./components/ConfirmedBooking";
 import "./App.css";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/booking" element={<div className="component-wrapper"><ParentComponent /><Footer /></div>} />
           <Route path="/order-online" element={<div className="component-wrapper"><OrderOnline /><Footer /></div>} />
           <Route path="/underconstruction" element={<div className="component-wrapper"><Underconstruction /><Footer /></div>} />
+          <Route path="/confirmation" element={<div className="component-wrapper"><ConfirmedBooking /><Footer /></div>} />
           <Route path="/login" element={<div className="component-wrapper"><h2>Login Section</h2><Footer /></div>} />
         </Routes>
       </div>
