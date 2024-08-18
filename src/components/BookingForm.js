@@ -14,7 +14,7 @@ const BookingForm = (props) => {
     const formData = { date, time, guests, occasion, phone, email };
 
     // Отправляем данные на ваш бэкенд
-    fetch('https://your-backend-url.onrender.com/api/reserve', {
+    fetch('https://little-lemon-backend-000v.onrender.com/api/reserve', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
